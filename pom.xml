@@ -13,7 +13,7 @@
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-framework.version>4.1.2.RELEASE</spring-framework.version>
-        <aspectj.version>1.8.4</aspectj.version>
+        <aspectj.version>1.7.4</aspectj.version>
     </properties>
 
     <dependencies>
@@ -39,8 +39,9 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>aspectj-maven-plugin</artifactId>
-                <version>1.7</version>
+                <version>1.6</version>
                 <configuration>
+                    <complianceLevel>1.6</complianceLevel>
                     <source>1.6</source>
                     <target>1.6</target>
                 </configuration>
