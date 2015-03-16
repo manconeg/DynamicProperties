@@ -10,10 +10,10 @@ import java.util.Properties;
 @EnableScheduling
 @Configuration
 public class DynamicPropertyTask {
+    private String resourceName;
+
     @Scheduled(fixedRate = 3000)
     public void reportCurrentTime() {
-        String resourceName = "application.properties";
-
         Properties props = new Properties();
 
         try {
@@ -23,5 +23,9 @@ public class DynamicPropertyTask {
         }
 
         DynamicProperties.setProperties(props);
+    }
+
+    public void setResourceName(String resourceName) {
+        this.resourceName = resourceName;
     }
 }
