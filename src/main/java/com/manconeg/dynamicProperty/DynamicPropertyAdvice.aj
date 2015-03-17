@@ -10,11 +10,12 @@ public aspect DynamicPropertyAdvice {
         if(value == null) value = "";
 
         try {
-            Field field = thisJoinPoint.getThis().getClass().getDeclaredField(thisJoinPoint.getSignature().getName());
+            Object targetObject = thisJoinPoint.getThis();
+            Field field = targetObject.getClass().getDeclaredField(thisJoinPoint.getSignature().getName());
             boolean isAccessible = field.isAccessible();
 
             field.setAccessible(true);
-            field.set(thisJoinPoint.getThis(), value);
+            field.set(targetObject, value);
             field.setAccessible(isAccessible);
         } catch(NoSuchFieldException e) {
             e.printStackTrace();
